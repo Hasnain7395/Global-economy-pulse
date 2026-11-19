@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Global Economic Pulse 2026: Fastest Growing vs. Contracting Economies</title>
+  <meta name="description" content="Explore the world's fastest growing and most contracting economies in 2026 based on IMF World Economic Outlook real GDP growth projections. Interactive charts, regional filters, and macroeconomic analysis.">
+  <meta name="keywords" content="fastest growing economies 2026, contracting economies 2026, IMF World Economic Outlook, real GDP growth rate, global economy tracker, macroeconomics">
+  <meta name="author" content="Global Economic Pulse">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Social Media SEO Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Global Economic Pulse 2026: Fastest Growing vs. Contracting Economies">
+  <meta property="og:description" content="Interactive 2026 global GDP growth tracker comparing top expanding markets and steepest contracting economies using IMF World Economic Outlook projections.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Global Economic Pulse 2026: Fastest Growing vs. Contracting Economies">
+  <meta name="twitter:description" content="Compare 2026 real GDP growth rates across the world's fastest growing and most contracting economies.">
+
+  <!-- Structured Data (JSON-LD) for Google Rich Results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Global Economic Pulse 2026: Real GDP Growth Projections",
+    "description": "Comparison of the top 10 fastest-growing economies and top 10 contracting economies in 2026 based on IMF World Economic Outlook data.",
+    "temporalCoverage": "2026",
+    "creator": {
+      "@type": "Organization",
+      "name": "Global Economic Pulse"
+    }
+  }
+  </script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            terminal: {
+              bg: '#0b1120',
+              card: '#111827',
+              cardHover: '#162033',
+              border: '#1f2937',
+              muted: '#94a3b8'
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #0b1120;
+      color: #f8fafc;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Subtle financial grid background */
+    .terminal-grid {
+      background-image: 
+        linear-gradient(to right, rgba(31, 41, 55, 0.35) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(31, 41, 55, 0.35) 1px, transparent 1px);
+      background-size: 36px 36px;
+    }
+
+    /* Custom sleek scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0b1120;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f2937;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #374151;
+    }
+
+    /* Smooth modal animation */
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.96) translateY(8px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .modal-animate {
+      animation: modalFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-emerald-500/30 selection:text-emerald-200">
+
+  <!-- Top Navigation / Status Bar -->
+  <header class="sticky top-0 z-30 border-b border-[#1f2937] bg-[#0b1120]/90 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-emerald-500/20 to-rose-500/20 border border-emerald-500/40 flex items-center justify-center shadow-inner">
+          <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8M14 7h7v7" />
+          </svg>
+        </div>
+        <div>
+          <span class="font-bold tracking-tight text-white text-base sm:text-lg">Global Economic Pulse</span>
+          <span class="hidden sm:inline-block ml-2 px-2 py-0.5 text-[11px] font-mono uppercase tracking-wider rounded bg-[#111827] text-slate-400 border border-[#1f2937]">2026 Edition</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <span class="hidden md:flex items-center gap-1.5 text-xs font-mono text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-2.5 py-1 rounded-full">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          IMF WEO OCT 2026
+        </span>
+        <button id="openDeployModalBtn" type="button" class="inline-flex items-center gap-2 px-3.5 py-2 text-xs sm:text-sm font-medium rounded-lg bg-[#111827] hover:bg-[#1f2937] text-slate-200 border border-[#1f2937] transition-colors cursor-pointer">
+          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <span>Host on Google</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1">
+    <!-- Hero Section -->
+    <section class="relative border-b border-[#1f2937] terminal-grid overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-emerald-500/5 via-transparent to-[#0b1120] pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 relative">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#111827] border border-[#1f2937] text-xs font-mono text-emerald-400 mb-4">
+            <span>●</span>
+            <span>IMF World Economic Outlook • October 2026 Data</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight mb-4">
+            Global Economic Pulse: <span class="text-emerald-400">Fastest Growing</span> vs. <span class="text-rose-400">Contracting</span> Economies
+          </h1>
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-8">
+            Tracking 2026 real GDP growth projections across global markets. Compare high-momentum emerging economies fueled by energy, AI semiconductors, and reforms against nations facing geopolitical shocks, inflation, and structural contractions.
+          </p>
+        </div>
+
+        <!-- Global Benchmark Ticker Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4" aria-label="Global GDP Growth Benchmarks">
+          <article class="bg-[#111827]/95 border border-[#1f2937] rounded-xl p-4 sm:p-5 flex items-center justify-between shadow-lg">
+            <div>
+              <p class="text-xs font-mono uppercase tracking-wider text-slate-400">World Average GDP Growth</p>
+              <p class="text-sm text-slate-300 mt-0.5">2026 Global Baseline</p>
+            </div>
+            <div class="text-right">
+              <span class="font-mono text-2xl sm:text-3xl font-bold text-white">+3.1%</span>
+              <span class="block text-[11px] font-mono text-slate-400">Real YoY</span>
+            </div>
+          </article>
+
+          <article class="bg-[#111827]/95 border border-[#1f2937] rounded-xl p-4 sm:p-5 flex items-center justify-between shadow-lg">
+            <div>
+              <p class="text-xs font-mono uppercase tracking-wider text-slate-400">Advanced Economies</p>
+              <p class="text-sm text-slate-300 mt-0.5">G7 &amp; Developed Markets</p>
+            </div>
+            <div class="text-right">
+              <span class="font-mono text-2xl sm:text-3xl font-bold text-sky-400">+2.1%</span>
+              <span class="block text-[11px] font-mono text-slate-400">Real YoY</span>
+            </div>
+          </article>
+
+          <article class="bg-[#111827]/95 border border-[#1f2937] rounded-xl p-4 sm:p-5 flex items-center justify-between shadow-lg">
+            <div>
+              <p class="text-xs font-mono uppercase tracking-wider text-slate-400">Emerging &amp; Developing</p>
+              <p class="text-sm text-slate-300 mt-0.5">High-Growth Engine</p>
+            </div>
+            <div class="text-right">
+              <span class="font-mono text-2xl sm:text-3xl font-bold text-emerald-400">+3.7%</span>
+              <span class="block text-[11px] font-mono text-slate-400">Real YoY</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Controls & Filters Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4" aria-label="Dashboard Controls">
+      <div class="bg-[#111827] border border-[#1f2937] rounded-2xl p-4 sm:p-5 shadow-xl space-y-4">
+        
+        <!-- Top Row: View Mode Tabs & Search Input -->
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <!-- View Toggle Tabs -->
+          <div class="flex flex-wrap gap-2" role="tablist" aria-label="View Modes">
+            <button type="button" data-view="split" class="view-tab px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer bg-emerald-500 text-slate-950 shadow">
+              Side-by-Side Comparison
+            </button>
+            <button type="button" data-view="growing" class="view-tab px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer bg-[#0b1120] text-slate-300 hover:text-white border border-[#1f2937]">
+              Fastest Growing Only
+            </button>
+            <button type="button" data-view="contracting" class="view-tab px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer bg-[#0b1120] text-slate-300 hover:text-white border border-[#1f2937]">
+              Contracting / Downward Only
+            </button>
+            <button type="button" data-view="chart" class="view-tab px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer bg-[#0b1120] text-slate-300 hover:text-white border border-[#1f2937]">
+              Interactive Bar Chart
+            </button>
+          </div>
+
+          <!-- Search Box -->
+          <div class="relative w-full lg:w-80">
+            <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 103.5 10.5a7.5 7.5 0 0013.15 6.15z" />
+            </svg>
+            <input 
+              id="searchInput" 
+              type="search" 
+              placeholder="Search country or driver (e.g. oil, AI)..." 
+              aria-label="Search countries or economic drivers"
+              class="w-full pl-10 pr-4 py-2 text-sm rounded-lg bg-[#0b1120] border border-[#1f2937] text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
+            >
+          </div>
+        </div>
+
+        <!-- Bottom Row: Region Filter Pills -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[#1f2937]">
+          <div class="flex flex-wrap items-center gap-1.5" role="group" aria-label="Filter by Region">
+            <span class="text-xs font-mono uppercase tracking-wider text-slate-400 mr-2">Region:</span>
+            <button type="button" data-region="All" class="region-pill px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer bg-slate-200 text-slate-950">
+              All Regions
+            </button>
+            <button type="button" data-region="Asia" class="region-pill px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer bg-[#0b1120] text-slate-300 hover:text-white border border-[#1f2937]">
+              Asia
+            </button>
+            <button type="button" data-region="Africa" class="region-pill px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer bg-[#0b1120] text-slate-300 hover:text-white border border-[#1f2937]">
+              Africa
+            </button>
+            <button type="button" data-region="Middle East" class="region-pill px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer bg-[#0b1120] text-slate-300 hover:text-white border border-[#1f2937]">
+              Middle East
+            </button>
+            <button type="button" data-region="Americas" class="region-pill px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer bg-[#0b1120] text-slate-300 hover:text-white border border-[#1f2937]">
+              Americas
+            </button>
+            <button type="button" data-region="Europe" class="region-pill px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer bg-[#0b1120] text-slate-300 hover:text-white border border-[#1f2937]">
+              Europe
+            </button>
+          </div>
+
+          <p id="resultCounter" class="text-xs font-mono text-slate-400">
+            Showing 20 economies • Click any card for economics breakdown
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Diverging Bar Chart Container (Shown when "Interactive Bar Chart" tab is active) -->
+    <section id="chartSection" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4" aria-label="Interactive GDP Diverging Bar Chart">
+      <div class="bg-[#111827] border border-[#1f2937] rounded-2xl p-5 sm:p-6 shadow-xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-5">
+          <div>
+            <h2 class="text-lg sm:text-xl font-bold text-white">2026 Projected Real GDP Growth Divergence (%)</h2>
+            <p class="text-xs sm:text-sm text-slate-400">Hover or tap any bar for details, or click to inspect macroeconomic drivers.</p>
+          </div>
+          <div class="flex items-center gap-4 text-xs font-mono">
+            <span class="flex items-center gap-1.5 text-emerald-400">
+              <span class="w-3 h-3 rounded-sm bg-emerald-500 inline-block"></span> Expansion (+)
+            </span>
+            <span class="flex items-center gap-1.5 text-rose-400">
+              <span class="w-3 h-3 rounded-sm bg-rose-500 inline-block"></span> Contraction (−)
+            </span>
+          </div>
+        </div>
+
+        <div id="chartWrapper" class="relative w-full overflow-x-auto">
+          <canvas id="gdpCanvas" class="w-full block cursor-pointer"></canvas>
+          <!-- Hover Tooltip -->
+          <div id="chartTooltip" class="pointer-events-none hidden fixed z-40 bg-[#0b1120]/95 border border-[#374151] rounded-xl p-3 shadow-2xl text-xs max-w-xs backdrop-blur-md"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards Grid Section (Side-by-Side, Growing Only, or Contracting Only) -->
+    <section id="cardsSection" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 pb-14">
+      <div id="listsGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+        
+        <!-- Fastest Growing Column -->
+        <div id="growingColumn" class="space-y-4">
+          <div class="flex items-center justify-between bg-emerald-950/30 border border-emerald-500/30 rounded-xl px-4 py-3">
+            <div class="flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+              <h2 class="text-base sm:text-lg font-bold text-white">Top 10 Fastest Growing Economies</h2>
+            </div>
+            <span id="growingCountBadge" class="font-mono text-xs font-semibold px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+              10 Markets
+            </span>
+          </div>
+
+          <div id="growingCardsContainer" class="space-y-3"></div>
+        </div>
+
+        <!-- Contracting / Downward Column -->
+        <div id="contractingColumn" class="space-y-4">
+          <div class="flex items-center justify-between bg-rose-950/30 border border-rose-500/30 rounded-xl px-4 py-3">
+            <div class="flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span>
+              <h2 class="text-base sm:text-lg font-bold text-white">Top 10 Contracting / Downward Economies</h2>
+            </div>
+            <span id="contractingCountBadge" class="font-mono text-xs font-semibold px-2.5 py-1 rounded-md bg-rose-500/20 text-rose-300 border border-rose-500/30">
+              10 Markets
+            </span>
+          </div>
+
+          <div id="contractingCardsContainer" class="space-y-3"></div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-[#1f2937] bg-[#0b1120] py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-center sm:text-left">
+        <p class="text-sm font-semibold text-slate-200">Global Economic Pulse 2026</p>
+        <p class="text-xs text-slate-400 mt-1">
+          Source: International Monetary Fund (IMF) World Economic Outlook, October 2026 Real GDP Growth Projections (% YoY).
+        </p>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="footerDeployBtn" type="button" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-xs sm:text-sm transition-colors cursor-pointer shadow-lg shadow-emerald-500/10">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          </svg>
+          <span>Copy Website Code / Deployment Guide</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Country Detail Modal -->
+  <div id="countryModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/75 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="modalCountryTitle">
+    <div class="modal-animate bg-[#111827] border border-[#374151] rounded-2xl max-w-lg w-full p-6 shadow-2xl relative">
+      <button id="closeCountryModalBtn" type="button" aria-label="Close modal" class="absolute top-4 right-4 p-2 rounded-lg text-slate-400 hover:text-white hover:bg-[#1f2937] transition-colors cursor-pointer">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div id="countryModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Deployment & Google Search Indexing Guide Modal -->
+  <div id="deployModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/75 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="deployModalTitle">
+    <div class="modal-animate bg-[#111827] border border-[#374151] rounded-2xl max-w-2xl w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <button id="closeDeployModalBtn" type="button" aria-label="Close deployment guide" class="absolute top-4 right-4 p-2 rounded-lg text-slate-400 hover:text-white hover:bg-[#1f2937] transition-colors cursor-pointer">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="flex items-center gap-2.5 mb-2">
+        <span class="px-2.5 py-0.5 rounded-full text-xs font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Free Launch Guide</span>
+      </div>
+      <h2 id="deployModalTitle" class="text-xl sm:text-2xl font-bold text-white mb-2">How to Publish This Website &amp; Get It on Google Search</h2>
+      <p class="text-sm text-slate-300 mb-5">
+        This file is already equipped with SEO meta tags, Open Graph tags, and Schema.org JSON-LD data. Follow these 3 free steps to put it live on the internet and index it on Google:
+      </p>
+
+      <div class="space-y-4 text-sm">
+        <div class="bg-[#0b1120] border border-[#1f2937] rounded-xl p-4">
+          <div class="flex items-center gap-2 font-bold text-emerald-400 mb-1">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-xs font-mono">1</span>
+            <span>Save This Code as <code class="font-mono text-white bg-[#1f2937] px-1.5 py-0.5 rounded">index.html</code></span>
+          </div>
+          <p class="text-slate-300 pl-8">
+            Click the copy button below and paste the code into a plain text file named <strong class="text-white">index.html</strong> on your computer.
+          </p>
+        </div>
+
+        <div class="bg-[#0b1120] border border-[#1f2937] rounded-xl p-4">
+          <div class="flex items-center gap-2 font-bold text-emerald-400 mb-1">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-xs font-mono">2</span>
+            <span>Host It Free on GitHub Pages, Vercel, or Netlify</span>
+          </div>
+          <p class="text-slate-300 pl-8">
+            Create a free account on <strong class="text-white">GitHub</strong> (upload <code class="font-mono text-xs bg-[#1f2937] px-1 py-0.5 rounded">index.html</code> to a public repository → <em>Settings → Pages → Deploy from main branch</em>) or drag-and-drop the folder onto <strong class="text-white">Netlify Drop / Vercel</strong>. You will get a live public HTTPS link immediately.
+          </p>
+        </div>
+
+        <div class="bg-[#0b1120] border border-[#1f2937] rounded-xl p-4">
+          <div class="flex items-center gap-2 font-bold text-emerald-400 mb-1">
+            <span class="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-xs font-mono">3</span>
+            <span>Submit Your URL to Google Search Console</span>
+          </div>
+          <p class="text-slate-300 pl-8">
+            Open <strong class="text-white">Google Search Console</strong>, click <em>Add Property</em>, paste your live website link, verify ownership, and click <strong class="text-white">Request Indexing</strong>. Google will crawl your page so anyone searching for your site name or keywords can find it!
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-[#1f2937]">
+        <span id="copyStatusText" class="text-xs font-mono text-slate-400">Ready to copy full HTML source code</span>
+        <button id="copySourceCodeBtn" type="button" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-colors cursor-pointer">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          </svg>
+          <span>Copy Full HTML Code</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden textarea fallback for clipboard copy in restricted iframes -->
+  <textarea id="clipboardFallback" class="sr-only" aria-hidden="true"></textarea>
+
+  <script>
+    // =========================================================================
+    // 1. DATASET: IMF World Economic Outlook (October 2026 Projections)
+    // =========================================================================
+    const ECONOMIES_DATA = [
+      // Top 10 Fastest Growing Economies (2026)
+      {
+        id: 'guyana',
+        rank: 1,
+        type: 'growing',
+        name: 'Guyana',
+        flag: '🇬🇾',
+        growth: 22.3,
+        region: 'Americas',
+        driver: 'Offshore oil production boom and infrastructure investment',
+        concept: 'Aggregate Demand & Exports',
+        analysis: 'Massive offshore crude oil discoveries in the Stabroek Block have surged export revenues, enabling heavy government capital expenditure on roads, ports, and energy infrastructure.'
+      },
+      {
+        id: 'taiwan',
+        rank: 2,
+        type: 'growing',
+        name: 'Taiwan',
+        flag: '🇹🇼',
+        growth: 10.7,
+        region: 'Asia',
+        driver: 'AI semiconductor manufacturing and high-tech export surge',
+        concept: 'Supply-Side Growth & Specialization',
+        analysis: 'Global artificial intelligence data center expansion has driven record demand for advanced logic chips and foundry capacity, boosting net exports and private capital investment.'
+      },
+      {
+        id: 'south-sudan',
+        rank: 3,
+        type: 'growing',
+        name: 'South Sudan',
+        flag: '🇸🇸',
+        growth: 10.5,
+        region: 'Africa',
+        driver: 'Oil export pipeline recovery and post-conflict stabilization',
+        concept: 'Resource Dependency & Recovery',
+        analysis: 'Restoration of key cross-border crude oil transit pipelines has allowed export volumes to rebound sharply from prior supply disruptions, lifting national output.'
+      },
+      {
+        id: 'ethiopia',
+        rank: 4,
+        type: 'growing',
+        name: 'Ethiopia',
+        flag: '🇪🇹',
+        growth: 9.2,
+        region: 'Africa',
+        driver: 'Industrial expansion, agriculture, and macro reforms',
+        concept: 'Supply-Side Policies & FDI',
+        analysis: 'Exchange-rate liberalization, debt restructuring progress, and investments in manufacturing parks and commercial agriculture are accelerating productive capacity.'
+      },
+      {
+        id: 'kyrgyz-republic',
+        rank: 5,
+        type: 'growing',
+        name: 'Kyrgyz Republic',
+        flag: '🇰🇬',
+        growth: 9.0,
+        region: 'Asia',
+        driver: 'Regional trade flows, remittances, and construction',
+        concept: 'Aggregate Demand & Inflows',
+        analysis: 'Strong regional transit trade, resilient household consumption supported by remittances, and public infrastructure projects continue to propel rapid GDP expansion.'
+      },
+      {
+        id: 'vietnam',
+        rank: 6,
+        type: 'growing',
+        name: 'Vietnam',
+        flag: '🇻🇳',
+        growth: 8.4,
+        region: 'Asia',
+        driver: 'Electronics manufacturing hub and foreign direct investment',
+        concept: 'Multinational Corporations (MNCs) & Exports',
+        analysis: 'Global supply-chain diversification ("China+1") continues to attract multinational electronics manufacturers, expanding employment, factory output, and export earnings.'
+      },
+      {
+        id: 'uzbekistan',
+        rank: 7,
+        type: 'growing',
+        name: 'Uzbekistan',
+        flag: '🇺🇿',
+        growth: 7.8,
+        region: 'Asia',
+        driver: 'Market liberalization, mining, and industrial modernization',
+        concept: 'Market Reforms & Capital Investment',
+        analysis: 'Privatization initiatives, energy tariff reforms, and expansion in gold and copper mining have stimulated both domestic enterprise and foreign capital inflows.'
+      },
+      {
+        id: 'rwanda',
+        rank: 8,
+        type: 'growing',
+        name: 'Rwanda',
+        flag: '🇷🇼',
+        growth: 7.4,
+        region: 'Africa',
+        driver: 'Services, tourism, and public infrastructure investment',
+        concept: 'Tertiary Sector & Public Investment',
+        analysis: 'Growth in conference tourism, financial and ICT services, alongside steady public-private infrastructure development, sustains high real output growth.'
+      },
+      {
+        id: 'guinea',
+        rank: 9,
+        type: 'growing',
+        name: 'Guinea',
+        flag: '🇬🇳',
+        growth: 7.2,
+        region: 'Africa',
+        driver: 'Bauxite and iron ore mining expansion',
+        concept: 'Primary Sector Exports',
+        analysis: 'Development of the massive Simandou iron ore project and sustained bauxite exports are driving major foreign investment and construction activity.'
+      },
+      {
+        id: 'india',
+        rank: 10,
+        type: 'growing',
+        name: 'India',
+        flag: '🇮🇳',
+        growth: 7.0,
+        region: 'Asia',
+        driver: 'Resilient domestic demand, digital services, and capital expenditure',
+        concept: 'Domestic Consumption & Infrastructure',
+        analysis: 'Strong private consumption, public capital expenditure on transport and digital infrastructure, and competitive IT/service exports keep India the fastest-growing major G20 economy.'
+      },
+
+      // Top 10 Contracting / Downward Economies (2026)
+      {
+        id: 'kuwait',
+        rank: 1,
+        type: 'contracting',
+        name: 'Kuwait',
+        flag: '🇰🇼',
+        growth: -16.7,
+        region: 'Middle East',
+        driver: 'Regional conflict disruptions and oil export bottlenecks',
+        concept: 'Supply Shocks & Resource Dependency',
+        analysis: 'Heavy reliance on hydrocarbon revenues combined with severe regional maritime and geopolitical disruptions has sharply curtailed export volumes and fiscal spending.'
+      },
+      {
+        id: 'iraq',
+        rank: 2,
+        type: 'contracting',
+        name: 'Iraq',
+        flag: '🇮🇶',
+        growth: -16.0,
+        region: 'Middle East',
+        driver: 'Oil production constraints and regional instability',
+        concept: 'Export Volatility & Fiscal Constraints',
+        analysis: 'OPEC+ production limits, pipeline export constraints, and regional security spillovers have contracted oil GDP, which accounts for the vast majority of state revenue.'
+      },
+      {
+        id: 'qatar',
+        rank: 3,
+        type: 'contracting',
+        name: 'Qatar',
+        flag: '🇶🇦',
+        growth: -15.6,
+        region: 'Middle East',
+        driver: 'Energy export disruptions and regional geopolitical shocks',
+        concept: 'External Shocks & Net Exports',
+        analysis: 'Disruptions to liquefied natural gas (LNG) shipping lanes and regional commercial activity have weighed heavily on real GDP despite strong underlying reserves.'
+      },
+      {
+        id: 'iran',
+        rank: 4,
+        type: 'contracting',
+        name: 'Iran',
+        flag: '🇮🇷',
+        growth: -7.6,
+        region: 'Middle East',
+        driver: 'Sanctions, inflation, and severe economic contraction',
+        concept: 'Cost-Push Inflation & Trade Barriers',
+        analysis: 'Tightened international trade sanctions, currency depreciation, high inflation eroding real household incomes, and energy shortages have driven a steep downturn.'
+      },
+      {
+        id: 'uae',
+        rank: 5,
+        type: 'contracting',
+        name: 'United Arab Emirates',
+        flag: '🇦🇪',
+        growth: -3.9,
+        region: 'Middle East',
+        driver: 'Regional trade and tourism headwinds',
+        concept: 'Aggregate Demand & External Spillovers',
+        analysis: 'As a major aviation, logistics, and tourism hub, the UAE faces near-term headwinds from regional shipping disruptions and reduced tourist arrivals.'
+      },
+      {
+        id: 'saudi-arabia',
+        rank: 6,
+        type: 'contracting',
+        name: 'Saudi Arabia',
+        flag: '🇸🇦',
+        growth: -3.3,
+        region: 'Middle East',
+        driver: 'Oil output adjustments and regional spillover effects',
+        concept: 'Primary Sector Contraction & Fiscal Policy',
+        analysis: 'Oil production restraints and regional geopolitical spillovers have outweighed non-oil diversification gains, pulling headline real GDP into negative territory.'
+      },
+      {
+        id: 'cuba',
+        rank: 7,
+        type: 'contracting',
+        name: 'Cuba',
+        flag: '🇨🇺',
+        growth: -1.9,
+        region: 'Americas',
+        driver: 'Energy grid shortages, inflation, and structural bottlenecks',
+        concept: 'Supply-Side Bottlenecks & Inflation',
+        analysis: 'Chronic power grid failures, fuel shortages, weak tourism recovery, and persistent inflation continue to restrict domestic production and living standards.'
+      },
+      {
+        id: 'yemen',
+        rank: 8,
+        type: 'contracting',
+        name: 'Yemen',
+        flag: '🇾🇪',
+        growth: -1.5,
+        region: 'Middle East',
+        driver: 'Prolonged humanitarian crisis and disrupted port trade',
+        concept: 'Structural Unemployment & Trade Disruption',
+        analysis: 'Ongoing conflict, Red Sea port disruptions, reduced humanitarian aid flows, and severe currency instability continue to depress economic activity.'
+      },
+      {
+        id: 'ireland',
+        rank: 9,
+        type: 'contracting',
+        name: 'Ireland',
+        flag: '🇮🇪',
+        growth: -1.0,
+        region: 'Europe',
+        driver: 'Multinational pharmaceutical/tech export volatility',
+        concept: 'MNC Profit Shifting & Net Exports',
+        analysis: 'While domestic employment remains resilient, fluctuations in multinational pharmaceutical and technology intellectual-property exports distort headline GDP downward.'
+      },
+      {
+        id: 'romania',
+        rank: 10,
+        type: 'contracting',
+        name: 'Romania',
+        flag: '🇷🇴',
+        growth: -0.6,
+        region: 'Europe',
+        driver: 'Fiscal tightening and sluggish European industrial demand',
+        concept: 'Contractionary Fiscal Policy',
+        analysis: 'Tax increases and spending restraint aimed at narrowing a wide budget deficit, paired with weak Eurozone manufacturing demand, have slowed output into a mild contraction.'
+      }
+    ];
+
+    // =========================================================================
+    // 2. APPLICATION STATE
+    // =========================================================================
+    const state = {
+      view: 'split',      // 'split' | 'growing' | 'contracting' | 'chart'
+      region: 'All',      // 'All' | 'Asia' | 'Africa' | 'Middle East' | 'Americas' | 'Europe'
+      searchQuery: '',
+      chartBars: []       // Stores bounding boxes for canvas hover/click detection
+    };
+
+    // =========================================================================
+    // 3. DOM REFERENCES
+    // =========================================================================
+    const growingCardsContainer = document.getElementById('growingCardsContainer');
+    const contractingCardsContainer = document.getElementById('contractingCardsContainer');
+    const growingCountBadge = document.getElementById('growingCountBadge');
+    const contractingCountBadge = document.getElementById('contractingCountBadge');
+    const resultCounter = document.getElementById('resultCounter');
+    const searchInput = document.getElementById('searchInput');
+    const chartSection = document.getElementById('chartSection');
+    const cardsSection = document.getElementById('cardsSection');
+    const listsGrid = document.getElementById('listsGrid');
+    const growingColumn = document.getElementById('growingColumn');
+    const contractingColumn = document.getElementById('contractingColumn');
+    const gdpCanvas = document.getElementById('gdpCanvas');
+    const chartTooltip = document.getElementById('chartTooltip');
+
+    // Modals
+    const countryModal = document.getElementById('countryModal');
+    const countryModalBody = document.getElementById('countryModalBody');
+    const closeCountryModalBtn = document.getElementById('closeCountryModalBtn');
+    const deployModal = document.getElementById('deployModal');
+    const openDeployModalBtn = document.getElementById('openDeployModalBtn');
+    const footerDeployBtn = document.getElementById('footerDeployBtn');
+    const closeDeployModalBtn = document.getElementById('closeDeployModalBtn');
+    const copySourceCodeBtn = document.getElementById('copySourceCodeBtn');
+    const copyStatusText = document.getElementById('copyStatusText');
+
+    // =========================================================================
+    // 4. FILTERING & RENDERING LOGIC
+    // =========================================================================
+    function getFilteredEconomies() {
+      const q = state.searchQuery.trim().toLowerCase();
+      return ECONOMIES_DATA.filter(item => {
+        const matchesRegion = state.region === 'All' || item.region === state.region;
+        const matchesQuery = !q ||
+          item.name.toLowerCase().includes(q) ||
+          item.driver.toLowerCase().includes(q) ||
+          item.region.toLowerCase().includes(q) ||
+          item.concept.toLowerCase().includes(q);
+        return matchesRegion && matchesQuery;
+      });
+    }
+
+    function formatGrowth(val) {
+      return val > 0 ? `+${val.toFixed(1)}%` : `${val.toFixed(1)}%`;
+    }
+
+    function createCountryCard(item) {
+      const isGrowing = item.type === 'growing';
+      const maxAbs = 23; // Scale bar width relative to max (~22.3%)
+      const barPercent = Math.min(100, Math.round((Math.abs(item.growth) / maxAbs) * 100));
+
+      const card = document.createElement('article');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', `${item.name}, ${formatGrowth(item.growth)} projected GDP growth. Click for details.`);
+      card.className = `group bg-[#111827] hover:bg-[#162033] border border-[#1f2937] ${
+        isGrowing ? 'hover:border-emerald-500/50' : 'hover:border-rose-500/50'
+      } rounded-xl p-4 transition-all duration-150 cursor-pointer focus:outline-none focus:ring-2 ${
+        isGrowing ? 'focus:ring-emerald-500' : 'focus:ring-rose-500'
+      }`;
+
+      card.innerHTML = `
+        <div class="flex items-start justify-between gap-3">
+          <div class="flex items-center gap-3 min-w-0">
+            <span class="font-mono text-xs font-bold w-6 h-6 rounded-md flex items-center justify-center shrink-0 ${
+              isGrowing
+                ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30'
+                : 'bg-rose-500/15 text-rose-400 border border-rose-500/30'
+            }">#${item.rank}</span>
+            <span class="text-2xl leading-none shrink-0" aria-hidden="true">${item.flag}</span>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="font-bold text-white text-base truncate group-hover:text-emerald-300 transition-colors">${item.name}</h3>
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#0b1120] text-slate-400 border border-[#1f2937]">${item.region}</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-300 mt-1 line-clamp-1">${item.driver}</p>
+            </div>
+          </div>
+
+          <div class="text-right shrink-0">
+            <span class="font-mono text-lg sm:text-xl font-bold ${
+              isGrowing ? 'text-emerald-400' : 'text-rose-400'
+            }">${formatGrowth(item.growth)}</span>
+            <span class="block text-[10px] font-mono uppercase tracking-wider text-slate-500">2026 GDP</span>
+          </div>
+        </div>
+
+        <!-- Mini visual magnitude bar -->
+        <div class="mt-3 pt-2.5 border-t border-[#1f2937]/80 flex items-center justify-between gap-3">
+          <div class="flex-1 h-1.5 bg-[#0b1120] rounded-full overflow-hidden">
+            <div class="h-full rounded-full ${isGrowing ? 'bg-emerald-500' : 'bg-rose-500'}" style="width: ${barPercent}%"></div>
+          </div>
+          <span class="text-[11px] font-mono text-slate-400 group-hover:text-slate-200 transition-colors shrink-0">
+            ${item.concept} →
+          </span>
+        </div>
+      `;
+
+      const openHandler = () => openCountryModal(item);
+      card.addEventListener('click', openHandler);
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openHandler();
+        }
+      });
+
+      return card;
+    }
+
+    function createEmptyState(label) {
+      const div = document.createElement('div');
+      div.className = 'bg-[#111827] border border-dashed border-[#1f2937] rounded-xl p-8 text-center';
+      div.innerHTML = `
+        <p class="text-sm font-medium text-slate-300">No ${label} economies match your current filters.</p>
+        <p class="text-xs text-slate-500 mt-1">Try selecting "All Regions" or clearing your search query.</p>
+      `;
+      return div;
+    }
+
+    function renderApp() {
+      const filtered = getFilteredEconomies();
+      const growing = filtered.filter(e => e.type === 'growing');
+      const contracting = filtered.filter(e => e.type === 'contracting');
+
+      // Update counters
+      growingCountBadge.textContent = `${growing.length} Market${growing.length === 1 ? '' : 's'}`;
+      contractingCountBadge.textContent = `${contracting.length} Market${contracting.length === 1 ? '' : 's'}`;
+      resultCounter.textContent = `Showing ${filtered.length} of ${ECONOMIES_DATA.length} economies • Click any card for economics breakdown`;
+
+      // Render cards
+      growingCardsContainer.innerHTML = '';
+      if (growing.length === 0) {
+        growingCardsContainer.appendChild(createEmptyState('fastest growing'));
+      } else {
+        growing.forEach(item => growingCardsContainer.appendChild(createCountryCard(item)));
+      }
+
+      contractingCardsContainer.innerHTML = '';
+      if (contracting.length === 0) {
+        contractingCardsContainer.appendChild(createEmptyState('contracting'));
+      } else {
+        contracting.forEach(item => contractingCardsContainer.appendChild(createCountryCard(item)));
+      }
+
+      // Handle view mode layout visibility
+      if (state.view === 'chart') {
+        chartSection.classList.remove('hidden');
+        cardsSection.classList.add('hidden');
+        drawDivergingChart(filtered);
+      } else {
+        chartSection.classList.add('hidden');
+        cardsSection.classList.remove('hidden');
+
+        if (state.view === 'split') {
+          listsGrid.className = 'grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8';
+          growingColumn.classList.remove('hidden');
+          contractingColumn.classList.remove('hidden');
+        } else if (state.view === 'growing') {
+          listsGrid.className = 'grid grid-cols-1 max-w-4xl mx-auto gap-6';
+          growingColumn.classList.remove('hidden');
+          contractingColumn.classList.add('hidden');
+        } else if (state.view === 'contracting') {
+          listsGrid.className = 'grid grid-cols-1 max-w-4xl mx-auto gap-6';
+          growingColumn.classList.add('hidden');
+          contractingColumn.classList.remove('hidden');
+        }
+      }
+    }
+
+    // =========================================================================
+    // 5. INTERACTIVE HTML5 CANVAS DIVERGING BAR CHART
+    // =========================================================================
+    function drawDivergingChart(items) {
+      const container = document.getElementById('chartWrapper');
+      if (!container || chartSection.classList.contains('hidden')) return;
+
+      // Sort descending by growth rate (+22.3% at top down to -16.7% at bottom)
+      const sorted = [...items].sort((a, b) => b.growth - a.growth);
+      const dpr = window.devicePixelRatio || 1;
+      const containerWidth = Math.max(container.clientWidth, 560);
+      const rowHeight = 36;
+      const topPadding = 32;
+      const bottomPadding = 28;
+      const height = Math.max(240, topPadding + bottomPadding + sorted.length * rowHeight);
+
+      gdpCanvas.style.width = `${containerWidth}px`;
+      gdpCanvas.style.height = `${height}px`;
+      gdpCanvas.width = containerWidth * dpr;
+      gdpCanvas.height = height * dpr;
+
+      const ctx = gdpCanvas.getContext('2d');
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, containerWidth, height);
+
+      if (sorted.length === 0) {
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '14px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('No economies match your filter criteria.', containerWidth / 2, height / 2);
+        state.chartBars = [];
+        return;
+      }
+
+      // Layout metrics
+      const leftLabelWidth = 155;
+      const rightPadding = 64;
+      const plotWidth = containerWidth - leftLabelWidth - rightPadding;
+      const minVal = -18;
+      const maxVal = 24;
+      const totalSpan = maxVal - minVal;
+      const zeroX = leftLabelWidth + ((0 - minVal) / totalSpan) * plotWidth;
+
+      // Vertical gridlines (-15%, -10%, -5%, 0%, +5%, +10%, +15%, +20%)
+      const ticks = [-15, -10, -5, 0, 5, 10, 15, 20];
+      ctx.font = '11px "JetBrains Mono", monospace';
+      ctx.textAlign = 'center';
+
+      ticks.forEach(tick => {
+        const x = leftLabelWidth + ((tick - minVal) / totalSpan) * plotWidth;
+        ctx.beginPath();
+        ctx.moveTo(x, topPadding - 8);
+        ctx.lineTo(x, height - bottomPadding + 6);
+        ctx.strokeStyle = tick === 0 ? '#475569' : '#1f2937';
+        ctx.lineWidth = tick === 0 ? 1.5 : 1;
+        ctx.stroke();
+
+        ctx.fillStyle = tick === 0 ? '#f8fafc' : '#64748b';
+        const label = tick > 0 ? `+${tick}%` : `${tick}%`;
+        ctx.fillText(label, x, topPadding - 14);
+      });
+
+      // Draw bars
+      state.chartBars = [];
+      sorted.forEach((item, idx) => {
+        const y = topPadding + idx * rowHeight;
+        const barHeight = 20;
+        const barY = y + (rowHeight - barHeight) / 2;
+        const valX = leftLabelWidth + ((item.growth - minVal) / totalSpan) * plotWidth;
+
+        // Subtle row hover stripe
+        if (idx % 2 === 0) {
+          ctx.fillStyle = 'rgba(15, 23, 42, 0.45)';
+          ctx.fillRect(0, y, containerWidth, rowHeight);
+        }
+
+        // Country name + flag on left
+        ctx.font = '12px Inter, sans-serif';
+        ctx.fillStyle = '#e2e8f0';
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(`${item.flag} ${item.name}`, leftLabelWidth - 12, y + rowHeight / 2);
+
+        // Bar geometry
+        const isPos = item.growth >= 0;
+        const barX = isPos ? zeroX : valX;
+        const barW = Math.max(3, Math.abs(valX - zeroX));
+
+        ctx.fillStyle = isPos ? '#10b981' : '#f43f5e';
+        ctx.beginPath();
+        if (ctx.roundRect) {
+          ctx.roundRect(barX, barY, barW, barHeight, 4);
+        } else {
+          ctx.rect(barX, barY, barW, barHeight);
+        }
+        ctx.fill();
+
+        // Value label next to bar
+        ctx.font = '600 11px "JetBrains Mono", monospace';
+        ctx.fillStyle = isPos ? '#34d399' : '#fb7185';
+        ctx.textAlign = isPos ? 'left' : 'right';
+        const textX = isPos ? valX + 6 : valX - 6;
+        ctx.fillText(formatGrowth(item.growth), textX, y + rowHeight / 2);
+
+        // Store hit box for interactivity
+        state.chartBars.push({
+          x: 0,
+          y,
+          w: containerWidth,
+          h: rowHeight,
+          item
+        });
+      });
+    }
+
+    // Canvas mouse/touch interactions
+    gdpCanvas.addEventListener('mousemove', (e) => {
+      const rect = gdpCanvas.getBoundingClientRect();
+      const mouseY = e.clientY - rect.top;
+      const hit = state.chartBars.find(b => mouseY >= b.y && mouseY <= b.y + b.h);
+
+      if (hit) {
+        const { item } = hit;
+        const isPos = item.growth >= 0;
+        chartTooltip.innerHTML = `
+          <div class="flex items-center justify-between gap-3 mb-1">
+            <span class="font-bold text-white text-sm">${item.flag} ${item.name}</span>
+            <span class="font-mono font-bold ${isPos ? 'text-emerald-400' : 'text-rose-400'}">${formatGrowth(item.growth)}</span>
+          </div>
+          <p class="text-slate-300 leading-snug mb-1.5">${item.driver}</p>
+          <span class="inline-block px-2 py-0.5 rounded bg-[#111827] border border-[#1f2937] text-[10px] font-mono text-sky-300">${item.concept}</span>
+        `;
+        chartTooltip.classList.remove('hidden');
+        const tooltipX = Math.min(window.innerWidth - 270, e.clientX + 14);
+        const tooltipY = Math.min(window.innerHeight - 130, e.clientY + 14);
+        chartTooltip.style.left = `${Math.max(12, tooltipX)}px`;
+        chartTooltip.style.top = `${Math.max(12, tooltipY)}px`;
+      } else {
+        chartTooltip.classList.add('hidden');
+      }
+    });
+
+    gdpCanvas.addEventListener('mouseleave', () => {
+      chartTooltip.classList.add('hidden');
+    });
+
+    gdpCanvas.addEventListener('click', (e) => {
+      const rect = gdpCanvas.getBoundingClientRect();
+      const clickY = e.clientY - rect.top;
+      const hit = state.chartBars.find(b => clickY >= b.y && clickY <= b.y + b.h);
+      if (hit) {
+        chartTooltip.classList.add('hidden');
+        openCountryModal(hit.item);
+      }
+    });
+
+    // =========================================================================
+    // 6. MODALS (COUNTRY DETAILS & DEPLOYMENT GUIDE)
+    // =========================================================================
+    function openCountryModal(item) {
+      const isGrowing = item.type === 'growing';
+      countryModalBody.innerHTML = `
+        <div class="flex items-center gap-3.5 mb-4 pr-8">
+          <span class="text-4xl" aria-hidden="true">${item.flag}</span>
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <h2 id="modalCountryTitle" class="text-xl sm:text-2xl font-bold text-white">${item.name}</h2>
+              <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#0b1120] text-slate-300 border border-[#1f2937]">${item.region}</span>
+            </div>
+            <p class="text-xs font-mono text-slate-400 mt-0.5">
+              Rank #${item.rank} ${isGrowing ? 'Fastest Growing Economy' : 'Steepest Contracting Economy'} (2026)
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 mb-4">
+          <div class="bg-[#0b1120] border border-[#1f2937] rounded-xl p-3.5">
+            <span class="block text-[11px] font-mono uppercase tracking-wider text-slate-400">2026 Real GDP Growth</span>
+            <span class="font-mono text-2xl sm:text-3xl font-extrabold ${isGrowing ? 'text-emerald-400' : 'text-rose-400'} mt-1 block">
+              ${formatGrowth(item.growth)}
+            </span>
+          </div>
+          <div class="bg-[#0b1120] border border-[#1f2937] rounded-xl p-3.5">
+            <span class="block text-[11px] font-mono uppercase tracking-wider text-slate-400">vs. World Avg (+3.1%)</span>
+            <span class="font-mono text-2xl sm:text-3xl font-extrabold text-slate-200 mt-1 block">
+              ${(item.growth - 3.1) >= 0 ? '+' : ''}${(item.growth - 3.1).toFixed(1)} pp
+            </span>
+          </div>
+        </div>
+
+        <div class="space-y-3 text-sm">
+          <div class="bg-[#0b1120] border border-[#1f2937] rounded-xl p-3.5">
+            <span class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1">Primary 2026 Economic Driver</span>
+            <p class="font-semibold text-white">${item.driver}</p>
+          </div>
+
+          <div class="bg-[#0b1120] border border-[#1f2937] rounded-xl p-3.5">
+            <span class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1">Macroeconomic Analysis</span>
+            <p class="text-slate-300 leading-relaxed">${item.analysis}</p>
+          </div>
+
+          <div class="flex items-center justify-between bg-sky-950/30 border border-sky-500/30 rounded-xl px-4 py-3">
+            <span class="text-xs font-mono text-sky-300 uppercase tracking-wider">IGCSE Economics Concept</span>
+            <span class="text-xs sm:text-sm font-bold text-white">${item.concept}</span>
+          </div>
+        </div>
+      `;
+
+      countryModal.classList.remove('hidden');
+      countryModal.classList.add('flex');
+    }
+
+    function closeCountryModal() {
+      countryModal.classList.add('hidden');
+      countryModal.classList.remove('flex');
+    }
+
+    function openDeployModal() {
+      copyStatusText.textContent = 'Ready to copy full HTML source code';
+      copyStatusText.className = 'text-xs font-mono text-slate-400';
+      deployModal.classList.remove('hidden');
+      deployModal.classList.add('flex');
+    }
+
+    function closeDeployModal() {
+      deployModal.classList.add('hidden');
+      deployModal.classList.remove('flex');
+    }
+
+    // Copy full standalone HTML source code using document.execCommand('copy')
+    function copyWebsiteSourceCode() {
+      try {
+        const fullHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+        const fallback = document.getElementById('clipboardFallback');
+        fallback.value = fullHtml;
+        fallback.classList.remove('sr-only');
+        fallback.select();
+        fallback.setSelectionRange(0, fallback.value.length);
+        const success = document.execCommand('copy');
+        fallback.classList.add('sr-only');
+
+        if (success) {
+          copyStatusText.textContent = '✓ Copied full index.html code to clipboard!';
+          copyStatusText.className = 'text-xs font-mono text-emerald-400 font-semibold';
+        } else {
+          copyStatusText.textContent = 'Use your editor Copy button or Ctrl+A / Ctrl+C to copy.';
+          copyStatusText.className = 'text-xs font-mono text-amber-400';
+        }
+      } catch (err) {
+        copyStatusText.textContent = 'Copy code directly from the right-hand editor panel.';
+        copyStatusText.className = 'text-xs font-mono text-amber-400';
+      }
+    }
+
+    // =========================================================================
+    // 7. EVENT LISTENERS
+    // =========================================================================
+    document.querySelectorAll('.view-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        state.view = btn.dataset.view;
+        document.querySelectorAll('.view-tab').forEach(b => {
+          const active = b === btn;
+          b.className = active
+            ? 'view-tab px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer bg-emerald-500 text-slate-950 shadow'
+            : 'view-tab px-3.5 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer bg-[#0b1120] text-slate-300 hover:text-white border border-[#1f2937]';
+        });
+        renderApp();
+      });
+    });
+
+    document.querySelectorAll('.region-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        state.region = pill.dataset.region;
+        document.querySelectorAll('.region-pill').forEach(p => {
+          const active = p === pill;
+          p.className = active
+            ? 'region-pill px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer bg-slate-200 text-slate-950'
+            : 'region-pill px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer bg-[#0b1120] text-slate-300 hover:text-white border border-[#1f2937]';
+        });
+        renderApp();
+      });
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      state.searchQuery = e.target.value;
+      renderApp();
+    });
+
+    closeCountryModalBtn.addEventListener('click', closeCountryModal);
+    countryModal.addEventListener('click', (e) => {
+      if (e.target === countryModal) closeCountryModal();
+    });
+
+    openDeployModalBtn.addEventListener('click', openDeployModal);
+    footerDeployBtn.addEventListener('click', openDeployModal);
+    closeDeployModalBtn.addEventListener('click', closeDeployModal);
+    deployModal.addEventListener('click', (e) => {
+      if (e.target === deployModal) closeDeployModal();
+    });
+
+    copySourceCodeBtn.addEventListener('click', copyWebsiteSourceCode);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeCountryModal();
+        closeDeployModal();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (state.view === 'chart') {
+        drawDivergingChart(getFilteredEconomies());
+      }
+    });
+
+    // Initial render
+    renderApp();
+  </script>
+</body>
+</html>
